@@ -1,6 +1,6 @@
 class Paper{
 
-    constructor(x,y,r){
+    constructor(x,y,radius){
         var options={
             isStatic:false,
             restitution:0.3,
@@ -8,24 +8,21 @@ class Paper{
             density:1.2
         }
 
-        this.x=x;
-        this.y=y;
-        this.r=r;
-        this.body=Bodies.circle(this.x,this.y,this.r/2,options);
+       
+        this.radius=radius;
+        this.body=Bodies.circle(x,y,this.radius,options);
         World.add(world,this.body);
     }
 
     display(){
-        var paperpos=this.body.position;
-
-        push()
-        translate(paperpos.x,paperpos.y);
-        rectMode(CENTER)
-        strokeWeight(3);
-        fill(255,0,255)
-        ellipse(0,0,this.r,this.r)
-        pop()
+       
+    fill("skyblue");
+    ellipseMode(RADIUS);
+    ellipse(this.body.position.x, this.body.position.y, this.radius, this.radius);
+        
+        
     }
 
 }
+
 

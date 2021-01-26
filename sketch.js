@@ -1,4 +1,4 @@
-var ground,paper,paperObject;
+var ground,paper;
 var leftd,bottomd,rightd;
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -11,7 +11,7 @@ function preload()
 }
 
 function setup() {
-	createCanvas(1000,700);
+	createCanvas(800,400);
 
 
 	engine = Engine.create();
@@ -19,12 +19,12 @@ function setup() {
 
 
   ground = new Ground(600,height,1200,20)
-  paper = new Paper(100,800,5)
+  paper = new Paper(50,300,10)
 
 
-  bottomd = new Dustbin(850,680,200,20)
-  leftd = new Dustbin(750,640,20,100)
-  rightd = new Dustbin(950,640,20,100)
+  bottomd = new Dustbin(650,382,150,15)
+  leftd = new Dustbin(570,350,15,80)
+  rightd = new Dustbin(730,350,15,80)
 
  	
 
@@ -45,18 +45,21 @@ function draw() {
   leftd.display();
   rightd.display();
 
-  keyPressed();
+  //eyPressed();
 
   drawSprites();
  
 }
 
 function keyPressed(){
-
-  if(keyCode===UP_ARROW){
-    Mattter.Body.applyForce(paperObject.body,paperObject.body.position,{x:85,y:85})
+  if (keyCode === UP_ARROW) {
+    Matter.Body.applyForce(paper.body, paper.body.position, {
+      x:  12,
+      y: -11
+    });
   }
 }
+
 
 
 
